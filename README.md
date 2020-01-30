@@ -1,14 +1,14 @@
 # Challenge PHP
 
-Nous avons vu du CRUD avec l'activité [randonnée](https://github.com/SimplonReunion/php-mysql-crud).
+Nous avons vu du CRUD avec l'activité [randonnée](https://github.com/faceth/php-mysql-crud).
 
 Certains actions du CRUD ne doivent pas être accessibles par n'importe qui : comme la mise à jour, la création et la suppression.
 
-Dans ce challenge, nous allons mettre en place une protection sur nos pages *create.php, update.php, delete.php* de l'activité [randonnée](https://github.com/SimplonReunion/php-mysql-crud), pour laisser l'utilisation de ces fonctionnalités uniquement à des personnes enregistrées en base de données (les utilisateurs de confiance).
+Dans ce challenge, nous allons mettre en place une protection sur nos pages *create.php, update.php, delete.php* de l'activité [randonnée](https://github.com/faceth/php-mysql-crud), pour laisser l'utilisation de ces fonctionnalités uniquement à des personnes enregistrées en base de données (les utilisateurs de confiance).
 
 # Comment ça marche
 
-Avant tout, sachez que pour pouvoir faire cela, il faudra savoir utiliser les sessions en PHP. Ce [petit tutoriel](http://www.lephpfacile.com/cours/18-les-sessions) vous explique comment fonctionne les sessions et aussi le principe d'une page connexion et de déconnexion.
+Avant tout, sachez que pour pouvoir faire cela, il faudra savoir utiliser les sessions en PHP. Ce [petit tutoriel](http://www.lephpfacile.com/cours/18-les-sessions) vous explique comment fonctionne les sessions et aussi le principe d'une page connexion et de déconnexion. ( Voir également [Ce cour](https://github.com/faceth/Exercices-PHP-Sessions)
 
 # Insérer des utilisateurs
 
@@ -43,7 +43,7 @@ Par exemple :
 
 ```php
 //request to find the user in database
-$req = $bdd->prepare('SELECT nom FROM user WHERE username = ? AND password <= ?');
+$req = $bdd->query('SELECT nom FROM user WHERE username = $username AND password = $password');
 //$username and $password are variable you got from the login form
-$req->execute(array($username, sha1($password)));
+
 ```
